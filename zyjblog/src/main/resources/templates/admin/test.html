@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="fileUpload" method="post" enctype="multipart/form-data" >
+    <p>选择文件: <input type="file" name="fileName" accept="image/jpg,image/jpeg,image/png"/></p>
+    <p><input type="submit" value="提交"/></p>
+</form>
+<!--<span th:if="${msg!=null}">${msg}</span>-->
+<!--<span th:unless="${msg==null}">文件未上传！</span>-->
+<span th:text="${msg}"></span>
+<img th:if="${fileName!=null}" th:src="@{'/show?fileName='+${fileName}}" style="width:200px ">
+@
+
+<!--<#if msg??>-->
+<!--<span>${msg}</span><br>-->
+<!--<#else >-->
+<!--<span>${msg!("文件未上传")}</span><br>-->
+<!--</#if>-->
+<!--<#&#45;&#45;显示图片，一定要在img中的src发请求给controller，否则直接跳转是乱码&ndash;&gt;-->
+<!--<#if fileName??>-->
+<!--<img src="/show?fileName=${fileName}" style="width: 200px"/>-->
+<!--<#else>-->
+<!--<img src="/show" style="width: 100px"/>-->
+<!--</#if>-->
+</body>
+</html>
